@@ -18,14 +18,20 @@ public class UpdateHandlerService(ITelegramBotClient bot, ILogger<UpdateHandlerS
 
     public async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
     {
-        Dictionary<string, BaseHanlder> handlers = new Dictionary<string, BaseHanlder> {
+        var commandHandlers = new Dictionary<string, ICommandHandler> {
             {"/start", new StartHandler(bot)},
             {"/hello", new HelloHandler(bot)}
-        };
+        };   
 
-        long chatId = update.Message.Chat.Id;
+        var chatId = update.Message!.Chat.Id;
 
-        var handler = handlers[update.Message!.Text];
-        await handler.Handle(chatId);
+        if (commandHandlers.TryGetValue(update.Message.Text!, out var handler))
+        {
+            await handler.Handle(chatId);
+        }
+        else 
+        {
+            await botClient.SendMessage(chatId, "Unknown command!");
+        }
     }
 }

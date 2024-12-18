@@ -4,11 +4,11 @@ using Telegram.Bot;
 
 namespace TelegramBot.Handlers;
 
-public class StartHandler(ITelegramBotClient bot) : BaseHanlder
+public class StartHandler(ITelegramBotClient bot) : ICommandHandler
 {
-    public override async Task Handle(long chatId) 
+    public async Task Handle(long chatId) 
     {
-        string message = "Start Handler is working!";
+        var message = "Start Handler is working!";
 
         await bot.SendMessage(chatId, message);
     }

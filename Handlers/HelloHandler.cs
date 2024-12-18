@@ -3,11 +3,11 @@ using Telegram.Bot;
 
 namespace TelegramBot.Handlers;
 
-public class HelloHandler(ITelegramBotClient bot) : BaseHanlder
+public class HelloHandler(ITelegramBotClient bot) : ICommandHandler
 {
-    public override async Task Handle(long chatId)
+    public async Task Handle(long chatId)
     {
-        string message = "Hello Handler is working!";
+        var message = "Hello Handler is working!";
 
         await bot.SendMessage(chatId, message);
     }
