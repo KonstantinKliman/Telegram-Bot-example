@@ -26,6 +26,6 @@ public class UpdateHandlerService(ITelegramBotClient bot, ILogger<UpdateHandlerS
         long chatId = update.Message.Chat.Id;
 
         var handler = handlers[update.Message!.Text];
-        await handler.Handle(update.Message.Chat.Id);
+        await handler.Handle(chatId);
     }
 }
