@@ -1,6 +1,6 @@
 using Telegram.Bot;
 using TelegramBot;
-using TelegramBot.Services;
+using TelegramBot.Core.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

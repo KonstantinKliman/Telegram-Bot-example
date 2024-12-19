@@ -1,8 +1,9 @@
 using System;
 using System.Reflection.Metadata;
 using Telegram.Bot;
+using TelegramBot.Core.Interfaces;
 
-namespace TelegramBot.Handlers;
+namespace TelegramBot.Core.Handlers;
 
 public class StartHandler(ITelegramBotClient bot) : ICommandHandler
 {

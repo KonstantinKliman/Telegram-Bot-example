@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Telegram.Bot;
 using Telegram.Bot.Types;
-using TelegramBot.Services;
+using TelegramBot.Core.Services;
 
 namespace TelegramBot.Controllers
 {

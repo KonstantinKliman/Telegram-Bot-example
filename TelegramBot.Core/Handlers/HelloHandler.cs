@@ -1,7 +1,8 @@
 using System;
 using Telegram.Bot;
+using TelegramBot.Core.Interfaces;
 
-namespace TelegramBot.Handlers;
+namespace TelegramBot.Core.Handlers;
 
 public class HelloHandler(ITelegramBotClient bot) : ICommandHandler
 {

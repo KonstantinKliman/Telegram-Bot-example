@@ -1,6 +1,6 @@
 using System;
 
-namespace TelegramBot.Handlers;
+namespace TelegramBot.Core.Interfaces;
 
 public interface ICommandHandler
 {

@@ -3,9 +3,11 @@ using Telegram.Bot;
 using Telegram.Bot.Exceptions;
 using Telegram.Bot.Polling;
 using Telegram.Bot.Types;
-using TelegramBot.Handlers;
+using TelegramBot.Core.Interfaces;
+using TelegramBot.Core.Handlers;
+using Microsoft.Extensions.Logging;
 
-namespace TelegramBot.Services;
+namespace TelegramBot.Core.Services;
 
 public class UpdateHandlerService(ITelegramBotClient bot, ILogger<UpdateHandlerService> logger) : IUpdateHandler
 {
