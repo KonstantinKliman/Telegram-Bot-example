@@ -1,8 +1,9 @@
 using System;
+using Telegram.Bot.Types;
 
 namespace TelegramBot.Core.Interfaces;
 
 public interface ICommandHandler
 {
-    Task Handle(long chatId);
+    Task Handle(Update update);
 }
