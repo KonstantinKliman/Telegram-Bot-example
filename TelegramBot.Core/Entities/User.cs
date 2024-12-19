@@ -1,4 +1,3 @@
-using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -9,15 +8,14 @@ public class User
 {
     [Column("id")]
     [Key]
-    public int Id { get; set; }
+    public long Id { get; set; }
 
     [Column("chat_id")]
     [Required]
     public required long ChatId { get; set; }
 
     [Column("username")]
-    [Required]
-    public required string Name { get; set; }
+    public string? Name { get; set; }
 
     [Column("first_name")]
     [Required]

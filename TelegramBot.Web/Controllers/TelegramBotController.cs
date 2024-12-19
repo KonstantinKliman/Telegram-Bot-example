@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Telegram.Bot;
@@ -20,15 +19,15 @@ namespace TelegramBot.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] Update update, [FromServices] ITelegramBotClient bot, [FromServices] UpdateHandlerService handleUpdateService, CancellationToken ct)
+        public async Task<IActionResult> Post([FromBody] Update update, [FromServices] ITelegramBotClient bot, [FromServices] UpdateHandler updateHandler, CancellationToken ct)
         {
             try
             {
-                await handleUpdateService.HandleUpdateAsync(bot, update, ct);
+                await updateHandler.HandleUpdateAsync(bot, update, ct);
             }
             catch (Exception exception)
             {
-                await handleUpdateService.HandleErrorAsync(bot, exception, Telegram.Bot.Polling.HandleErrorSource.HandleUpdateError, ct);
+                await updateHandler.HandleErrorAsync(bot, exception, Telegram.Bot.Polling.HandleErrorSource.HandleUpdateError, ct);
             }
             return Ok();
         }

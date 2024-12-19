@@ -21,4 +21,13 @@ public class ApplicationDbContext : DbContext
             optionsBuilder.UseNpgsql(connectionString);
         }
     }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder) // у меня не получилось через атрибуты у сущности 
+    {
+        base.OnModelCreating(modelBuilder);
+    
+        modelBuilder.Entity<User>()
+            .HasIndex(u => u.ChatId)
+            .IsUnique();
+    }
 }

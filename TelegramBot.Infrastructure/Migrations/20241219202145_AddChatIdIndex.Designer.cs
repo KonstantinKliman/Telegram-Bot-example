@@ -11,8 +11,8 @@ using TelegramBot.Infrastructure;
 namespace TelegramBot.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241219124052_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20241219202145_AddChatIdIndex")]
+    partial class AddChatIdIndex
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,14 +24,14 @@ namespace TelegramBot.Infrastructure.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("TelegramBot.Infrastructure.Entities.User", b =>
+            modelBuilder.Entity("TelegramBot.Core.Entities.User", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
+                        .HasColumnType("bigint")
                         .HasColumnName("id");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
 
                     b.Property<long>("ChatId")
                         .HasColumnType("bigint")
@@ -47,11 +47,13 @@ namespace TelegramBot.Infrastructure.Migrations
                         .HasColumnName("last_name");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("username");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ChatId")
+                        .IsUnique();
 
                     b.ToTable("users", "public");
                 });

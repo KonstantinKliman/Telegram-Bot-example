@@ -1,15 +1,21 @@
-using System;
-using TelegramBot.Core.Entities;
 using TelegramBot.Core.Interfaces.Repositories;
+using TelegramBot.Core.Interfaces.Repositories.UnitOfWork;
 
 namespace TelegramBot.Infrastructure.UnitOfWork;
 
-public class UnitOfWork(ApplicationDbContext context) : IUnitOfWork
+public class UnitOfWork : IUnitOfWork
 {
-    public IRepository<User> Users { get; }
+    private readonly ApplicationDbContext _context;
 
+    public IUserRepository Users { get; }
+
+    public UnitOfWork(ApplicationDbContext context, IUserRepository userRepository)
+    {
+        _context = context;
+        Users = userRepository;
+    }
     public async Task<int> CompleteAsync()
     {
-        return await context.SaveChangesAsync();
+        return await _context.SaveChangesAsync();
     }
 }

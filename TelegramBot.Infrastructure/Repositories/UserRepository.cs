@@ -1,10 +1,11 @@
 using System;
 using TelegramBot.Core.Interfaces.Repositories;
 using TelegramBot.Core.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace TelegramBot.Infrastructure.Repositories;
 
-public class UserRepository : IRepository<User>
+public class UserRepository : IUserRepository
 {
     private readonly ApplicationDbContext _context;
 
@@ -28,13 +29,18 @@ public class UserRepository : IRepository<User>
         throw new NotImplementedException();
     }
 
-    public User GetById(int id)
+    public async Task<User?> GetById(int id)
     {
-        throw new NotImplementedException();
+        return await _context.Users.FindAsync(id);
     }
 
     public void Update(User user)
     {
         throw new NotImplementedException();
+    }
+
+    public async Task<User?> GetByChatId(long chatId)
+    {
+        return await _context.Users.SingleOrDefaultAsync(u => u.ChatId == chatId);
     }
 }

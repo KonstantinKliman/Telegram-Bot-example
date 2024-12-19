@@ -19,10 +19,10 @@ namespace TelegramBot.Infrastructure.Migrations
                 schema: "public",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "integer", nullable: false)
+                    id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     chat_id = table.Column<long>(type: "bigint", nullable: false),
-                    username = table.Column<string>(type: "text", nullable: false),
+                    username = table.Column<string>(type: "text", nullable: true),
                     first_name = table.Column<string>(type: "text", nullable: false),
                     last_name = table.Column<string>(type: "text", nullable: true)
                 },

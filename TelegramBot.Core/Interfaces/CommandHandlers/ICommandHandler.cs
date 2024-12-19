@@ -1,9 +1,8 @@
-using System;
-using Telegram.Bot.Types;
+using TelegramBot.Core.DTO;
 
 namespace TelegramBot.Core.Interfaces;
 
 public interface ICommandHandler
 {
-    Task Handle(Update update);
+    Task Handle(UpdateDTO updateDTO);
 }
