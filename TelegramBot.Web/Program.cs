@@ -4,7 +4,6 @@ using TelegramBot;
 using TelegramBot.Core.Interfaces.Repositories;
 using TelegramBot.Core.Services;
 using TelegramBot.Infrastructure;
-using TelegramBot.Infrastructure.Repositories;
 using TelegramBot.Infrastructure.UnitOfWork;
 
 var builder = WebApplication.CreateBuilder(args);

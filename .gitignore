@@ -1,17 +1,16 @@
+# Temporary files and OS-specific files
 *.swp
 *.*~
-project.lock.json
 .DS_Store
 *.pyc
+
+# NuGet
 nupkg/
+project.lock.json
 
-# Visual Studio Code
-.vscode
-
-# Rider
-.idea
-
-# User-specific files
+# IDE-specific files
+.vscode/
+.idea/
 *.suo
 *.user
 *.userosscache
@@ -35,3 +34,17 @@ msbuild.wrn
 
 # Visual Studio 2015
 .vs/
+
+# Configuration files
+appsettings.Development.json
+!appsettings.Development.json.example
+
+# Node.js-related files
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Docker-related files
+*.env
+docker-compose.override.yml
