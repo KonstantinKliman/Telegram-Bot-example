@@ -1,6 +1,6 @@
-using TelegramBot.Core.Entities;
+using TelegramBot.Application.Entities;
 
-namespace TelegramBot.Core.Interfaces.Repositories;
+namespace TelegramBot.Application.Interfaces.Repositories;
 
 public interface IUserRepository
 {

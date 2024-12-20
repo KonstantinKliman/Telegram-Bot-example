@@ -1,5 +1,4 @@
-using System;
-using TelegramBot.Core.Interfaces.Services;
+using TelegramBot.Application.Interfaces.Services;
 
 namespace TelegramBot.Core.Services;
 

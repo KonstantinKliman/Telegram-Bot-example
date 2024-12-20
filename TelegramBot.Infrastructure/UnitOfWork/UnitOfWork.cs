@@ -1,5 +1,5 @@
-using TelegramBot.Core.Interfaces.Repositories;
-using TelegramBot.Core.Interfaces.Repositories.UnitOfWork;
+using TelegramBot.Application.Interfaces.Repositories;
+using TelegramBot.Application.Interfaces.Repositories.UnitOfWork;
 
 namespace TelegramBot.Infrastructure.UnitOfWork;
 

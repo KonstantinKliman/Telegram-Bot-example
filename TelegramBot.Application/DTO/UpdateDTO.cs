@@ -1,6 +1,6 @@
 using System;
 
-namespace TelegramBot.Core.DTO;
+namespace TelegramBot.Application.DTO;
 
 public class UpdateDTO
 {

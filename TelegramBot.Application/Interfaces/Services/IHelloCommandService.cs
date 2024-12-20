@@ -1,6 +1,6 @@
 using System;
 
-namespace TelegramBot.Core.Interfaces.Services;
+namespace TelegramBot.Application.Interfaces.Services;
 
 public interface IHelloCommandService
 {

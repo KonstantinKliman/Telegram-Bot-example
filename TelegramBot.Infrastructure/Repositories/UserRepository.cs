@@ -1,7 +1,7 @@
 using System;
-using TelegramBot.Core.Interfaces.Repositories;
-using TelegramBot.Core.Entities;
 using Microsoft.EntityFrameworkCore;
+using TelegramBot.Application.Entities;
+using TelegramBot.Application.Interfaces.Repositories;
 
 namespace TelegramBot.Infrastructure.Repositories;
 

@@ -1,4 +1,4 @@
-namespace TelegramBot.Core.Interfaces.Repositories.UnitOfWork;
+namespace TelegramBot.Application.Interfaces.Repositories.UnitOfWork;
 
 public interface IUnitOfWork
 {

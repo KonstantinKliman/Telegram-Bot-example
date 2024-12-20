@@ -1,7 +1,5 @@
-using System;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using TelegramBot.Core.Entities;
+using TelegramBot.Application.Entities;
 
 namespace TelegramBot.Infrastructure;
 
